@@ -1,4 +1,8 @@
-# DeepGEMM Essentials: High-Performance FP8 Matrix Multiplication
+---
+published: true
+---
+
+# DeepGEMM Essentials MD: High-Performance FP8 Matrix Multiplication
 
 ## Part 1: Getting Started - Your First FP8 GEMM
 
