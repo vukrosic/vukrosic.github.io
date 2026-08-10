@@ -130,14 +130,17 @@ nav {
   padding: 34px 0 70px;
   border-top: 1px solid $ink;
 
-  > p:last-child {
+  .showcase-item {
     max-width: 900px;
-    margin-top: 22px;
+    margin: 0;
+    padding: 22px 0;
+    border-bottom: 1px solid $line;
     font-size: 23px;
     line-height: 1.45;
   }
 
-  a { border-bottom: 1px solid $ink; }
+  .label + .showcase-item { margin-top: 8px; }
+  a:hover { text-decoration: underline; text-underline-offset: 4px; }
 }
 
 .page,
@@ -172,7 +175,7 @@ nav {
   .simple-hero { padding: 48px 0 64px; }
   .simple-hero h1 { font-size: 48px; }
   .simple-hero > p:not(.label) { font-size: 18px; }
-  .simple-showcase > p:last-child { font-size: 20px; }
+  .simple-showcase .showcase-item { font-size: 20px; }
 }
 
 @import "highlights";
