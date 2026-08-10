@@ -22,17 +22,20 @@
   <body>
     <div class="wrapper-masthead">
       <div class="container">
-        <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
+        <header class="masthead">
+          <a href="{{ site.baseurl }}/" class="site-brand" aria-label="Vuk Rosić home">
+            <span class="brand-mark">VR</span>
+            <span class="brand-copy">
+              <strong>{{ site.name }}</strong>
+              <small>AI research · open systems</small>
+            </span>
+          </a>
 
-          <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-          </div>
-
-          <nav>
-            <a href="{{ site.baseurl }}/">Blog</a>
+          <nav aria-label="Primary navigation">
+            <a href="{{ site.baseurl }}/open-discovery/">Open Discovery</a>
+            <a href="{{ site.baseurl }}/">Writing</a>
             <a href="{{ site.baseurl }}/about">About</a>
+            <a class="nav-github" href="https://github.com/vukrosic">GitHub ↗</a>
           </nav>
         </header>
       </div>

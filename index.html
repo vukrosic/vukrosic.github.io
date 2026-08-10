@@ -2,17 +2,69 @@
 layout: default
 ---
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
-
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-        {{ post.excerpt }}
+<section class="home-hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <p class="signal"><span></span> OPEN DISCOVERY / PUBLIC LAB</p>
+  <div class="hero-layout">
+    <div>
+      <h1>Research that runs.<br>Evidence that remains.</h1>
+      <p class="hero-copy">
+        I am building an open-source system that turns scientific and
+        engineering goals into autonomous experiments, checked results,
+        and repositories others can continue.
+      </p>
+      <div class="actions">
+        <a class="button button-light" href="{{ site.baseurl }}/open-discovery/">Enter the lab <span>→</span></a>
+        <a class="button button-ghost" href="https://github.com/vukrosic/open-discovery">View source ↗</a>
       </div>
+    </div>
+    <aside class="hero-note" aria-label="Open Discovery summary">
+      <p class="micro-label">THE OUTPUT</p>
+      <p class="hero-note-main">One question.<br>Independent investigations.<br>One evidence-backed repository.</p>
+      <div class="hero-note-footer">
+        <span>Open source</span>
+        <span>Human-directed</span>
+        <span>Evidence-first</span>
+      </div>
+    </aside>
+  </div>
+</section>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+<section class="feature-result" aria-labelledby="feature-title">
+  <div class="section-index">01 / LATEST RESULT</div>
+  <div class="feature-layout">
+    <div class="feature-number">3.92<span>×</span></div>
+    <div class="feature-copy">
+      <p class="micro-label">LIGHTFM · EXACT INFERENCE OPTIMIZATION</p>
+      <h2 id="feature-title">Same recommendations.<br>One quarter of the wait.</h2>
+      <p>
+        Full-catalog top-10 latency fell from <strong>84.41 ms to 21.54 ms</strong>
+        using the same frozen weights. Every one of 943 users kept the identical
+        ordered ranking.
+      </p>
+      <div class="proof-line">
+        <span><strong>943/943</strong> exact rankings</span>
+        <span><strong>492</strong> same test hits</span>
+        <span><strong>69</strong> tests passed</span>
+      </div>
+      <a class="arrow-link" href="https://github.com/vukrosic/lightfm-optimized">Inspect the code and benchmark <span>↗</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="writing-section">
+  <div class="section-index">02 / WRITING</div>
+  <div class="section-title-row">
+    <h2>Notes from the work</h2>
+    <span>AI · ML systems · research</span>
+  </div>
+  <div class="posts">
+    {% for post in site.posts limit:4 %}
+      <article class="post-card">
+        <p>{{ post.date | date: "%Y.%m.%d" }}</p>
+        <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+        <a href="{{ site.baseurl }}{{ post.url }}" class="arrow-link">Read note <span>→</span></a>
+      </article>
+    {% endfor %}
+  </div>
+</section>
