@@ -24,11 +24,17 @@
 
   <main class="shell page">
     <h1>Find faster algorithms</h1>
-    <p class="intro">We will use an AI agent to find and verify faster algorithms. We are starting with databases because database performance is commercially valuable and easier to measure and sell. Once this works repeatedly, we can expand into logistics.</p>
+    <p class="intro">We will use AI agents to find and verify faster algorithms, starting with databases because database performance has clear buyers and measurable value. From there we can expand into logistics, routing, scheduling, matching, packing, search, compilers, compression, networking, AI inference, scientific computing, biology, chemistry, mathematics, and other digital research where correctness and progress can be measured.</p>
 
     <section class="prompt" aria-label="Copy-paste agent prompt">
       <div class="prompt-head"><span>Copy-paste prompt</span><button class="copy" id="copy-prompt" type="button">Copy prompt</button></div>
-      <pre id="agent-prompt">Find a faster commercially useful database algorithm in this repository. Own the entire process: set up the environment, choose a valuable bottleneck, and establish a fair evaluation before changing code. Freeze the baseline, correctness tests, representative benchmarks, held-out cases, build settings, and success rule. Then test isolated improvements and coordinate other agents if useful. Protect the baseline and evaluator, avoid benchmark contention, preserve all results, and independently rerun any winner from a clean build. Report only reproducible speedups with matching outputs.</pre>
+      <pre id="agent-prompt">You are the lead algorithm-discovery agent for Open Discovery. Find one reproducible algorithmic improvement that could become a sellable product or service, or a credible scientific result. Start with databases.
+
+Research current state-of-the-art and strongest practical baselines online using primary sources: papers, official documentation, benchmark suites, and source repositories. Compare useful areas such as joins, aggregation, sorting, scans, query planning, indexes, compression, and spilling. Choose the opportunity with the clearest customer pain, accessible code and workloads, a fair measurable objective, and realistic room to improve. Explain what you chose, why, and who could buy it.
+
+Own the full loop. Set up the environment; pin the source, toolchain, hardware, and untouched baseline; then freeze correctness tests, representative benchmarks, held-out cases, resource limits, and the pass/fail rule before changing code. Profile the bottleneck. Try isolated algorithmic improvements and orchestrate other agents if useful, but never let candidates alter the baseline or evaluator. Check correctness before speed. Run repeated baseline-versus-candidate trials under low contention, measure latency, throughput, and memory, and preserve failed or slower attempts.
+
+Cleanly rebuild and rerun any winner on held-out cases. Compare it with existing solutions and translate the gain into customer value or scientific value. Deliver the code, source citations, frozen protocol, raw results, reproduction commands, limitations, and an honest recommendation: sell it, publish it, continue searching, or stop.</pre>
     </section>
   </main>
 
