@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>What to Work On Now — Open Discovery</title>
-  <meta name="description" content="A short step-by-step brief for helping Open Discovery find faster, commercially useful database algorithms.">
+  <title>Find faster algorithms</title>
+  <meta name="description" content="Use AI agents to find and verify faster, commercially useful algorithms.">
   <style>
-    :root{--ink:#34251d;--muted:#846f60;--paper:#fbf4e9;--card:#fffaf3;--line:#e8d8c5;--accent:#e9773c;--deep:#38271f}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 4%,#f9e0c5 0,transparent 30rem),var(--paper);color:var(--ink);font:16px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}.shell{width:min(1180px,calc(100% - 48px));margin:auto}.nav{height:78px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px;font-weight:750;letter-spacing:-.035em}.mark{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font:800 10px ui-monospace,monospace;letter-spacing:-.1em}.links{display:flex;align-items:center;gap:29px;color:var(--muted);font-size:14px}.links a:hover{color:var(--accent)}.pill{padding:11px 16px;border:1px solid #d8bda4;border-radius:999px;color:var(--ink)!important}.page{max-width:850px;padding:82px 0 115px}.kicker{color:#a46340;font:700 10px ui-monospace,monospace;letter-spacing:.13em;text-transform:uppercase}h1,h2,p{margin:0}h1,h2{font-family:Iowan Old Style,Baskerville,"Times New Roman",serif;font-weight:500;letter-spacing:-.06em}h1{max-width:820px;margin-top:20px;font-size:clamp(52px,7vw,84px);line-height:.98}em{color:#d86431;font-style:italic}.intro{max-width:720px;margin-top:26px;color:var(--muted);font-size:20px;line-height:1.58}.start{margin-top:42px;padding:24px 27px;border:1px solid #dfbea2;border-radius:13px;background:#f3dfc9;color:#664e40;font-size:17px;line-height:1.6}.start strong{color:#bf5d31}.steps{margin:50px 0 0;padding:0;list-style:none;counter-reset:steps}.steps li{display:grid;grid-template-columns:50px 1fr;gap:18px;padding:27px 0;border-top:1px solid var(--line);counter-increment:steps}.steps li::before{content:"0" counter(steps);color:#c86435;font:700 12px ui-monospace,monospace}.steps h2{font-size:29px;line-height:1.08}.steps p{margin-top:9px;color:#725e50;font-size:16px;line-height:1.65}.areas{margin-top:22px;color:#9a7763!important;font:12px/1.7 ui-monospace,monospace!important;letter-spacing:.04em}.agent{margin-top:52px;padding:30px;border-radius:14px;background:var(--deep);color:#fff8f1;box-shadow:14px 16px 0 #ead5c0}.agent .kicker{color:#e7a174}.agent p{margin-top:16px;color:#eadbd0;font-size:17px;line-height:1.7}.agent strong{color:#fff}.actions{display:flex;gap:22px;align-items:center;margin-top:34px}.button{display:inline-flex;align-items:center;justify-content:center;padding:15px 22px;border-radius:999px;background:var(--accent);color:#fff;font-size:14px;font-weight:700}.button:hover{background:#d8602c}.textlink{padding-bottom:3px;border-bottom:1px solid #cba98d;color:#6e584a;font-size:13px}footer{display:flex;align-items:center;justify-content:space-between;min-height:108px;color:#8d786a;font-size:12px}footer p{flex:1;margin-left:30px}footer div{display:flex;gap:20px}@media(max-width:700px){.shell{width:min(100% - 32px,1180px)}.links a:not(.pill){display:none}.page{padding:55px 0 82px}.steps li{grid-template-columns:36px 1fr}.actions{align-items:flex-start;flex-direction:column}footer{align-items:flex-start;flex-direction:column;padding:28px 0;gap:14px}footer p{margin:0}}
+    :root{--ink:#34251d;--muted:#846f60;--paper:#fbf4e9;--line:#e8d8c5;--accent:#e9773c;--deep:#38271f}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 4%,#f9e0c5 0,transparent 30rem),var(--paper);color:var(--ink);font:16px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}.shell{width:min(1180px,calc(100% - 48px));margin:auto}.nav{height:78px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px;font-weight:750;letter-spacing:-.035em}.mark{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font:800 10px ui-monospace,monospace;letter-spacing:-.1em}.links{display:flex;align-items:center;gap:29px;color:var(--muted);font-size:14px}.links a:hover{color:var(--accent)}.pill{padding:11px 16px;border:1px solid #d8bda4;border-radius:999px;color:var(--ink)!important}.page{max-width:800px;padding:100px 0 130px}h1,p{margin:0}h1{font:500 clamp(55px,7vw,86px)/.98 Iowan Old Style,Baskerville,"Times New Roman",serif;letter-spacing:-.06em}.intro{max-width:700px;margin-top:27px;color:var(--muted);font-size:20px;line-height:1.6}.prompt{margin-top:54px;overflow:hidden;border-radius:14px;background:var(--deep);box-shadow:15px 18px 0 #ead5c0}.prompt-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #6b4e3e;color:#e2a57e;font:700 10px ui-monospace,monospace;letter-spacing:.11em;text-transform:uppercase}.copy{padding:7px 11px;border:1px solid #835c47;border-radius:999px;background:transparent;color:#e2a57e;cursor:pointer;font:inherit;letter-spacing:inherit}.copy:hover{border-color:#e2a57e}.prompt pre{margin:0;padding:25px;white-space:pre-wrap;color:#eadbd0;font:14px/1.75 ui-monospace,SFMono-Regular,Menlo,monospace}footer{display:flex;align-items:center;justify-content:space-between;min-height:108px;color:#8d786a;font-size:12px}footer p{flex:1;margin-left:30px}footer div{display:flex;gap:20px}@media(max-width:700px){.shell{width:min(100% - 32px,1180px)}.links a:not(.pill){display:none}.page{padding:62px 0 90px}.prompt pre{font-size:12px}footer{align-items:flex-start;flex-direction:column;padding:28px 0;gap:14px}footer p{margin:0}}
   </style>
 </head>
 <body>
@@ -23,61 +23,13 @@
   </nav>
 
   <main class="shell page">
-    <span class="kicker">What to work on right now</span>
-    <h1>Help us find faster <em>database algorithms.</em></h1>
-    <p class="intro">Open Discovery uses AI agents to improve commercially useful algorithms. We are starting with databases. Logistics comes later, after we prove the process and find a real design partner.</p>
+    <h1>Find faster algorithms</h1>
+    <p class="intro">We will use an AI agent to find and verify faster algorithms. We are starting with databases because database performance is commercially valuable and easier to measure and sell. Once this works repeatedly, we can expand into logistics.</p>
 
-    <p class="start"><strong>The first job is not optimization.</strong> The first job is to set up a fair evaluation that can tell us whether a change is correct, genuinely faster, and commercially useful.</p>
-
-    <ol class="steps">
-      <li>
-        <div>
-          <h2>Choose one database task.</h2>
-          <p>Pick one expensive operation with open code, realistic inputs, and measurable value.</p>
-          <p class="areas">JOINS · GROUPED AGGREGATION · SORTING · TOP-N · SCANS · FILTERS · QUERY PLANNING · INDEXES · COMPRESSION · SPILLING</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <h2>Let the lead AI agent set up the environment.</h2>
-          <p>Give it the repository and objective. It can inspect the code, install dependencies, build the project, find the relevant tests and benchmarks, and supervise other agents.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <h2>Make the evaluation fair before searching.</h2>
-          <p>Freeze the source version, untouched baseline, machine, build flags, correctness tests, representative workloads, timing method, memory checks, and success rule. Keep some cases held out for final confirmation.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <h2>Search many isolated ideas.</h2>
-          <p>The lead agent can orchestrate other agents to try different algorithmic mechanisms. Each attempt must have its own files and must never modify the baseline or evaluator.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <h2>Confirm only real wins.</h2>
-          <p>Check identical outputs first. Then compare repeated baseline-versus-candidate runs under low contention. Rebuild the winner cleanly and test it on held-out workloads. Preserve failures and slower results too.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <h2>Connect the result to customer value.</h2>
-          <p>Explain whether the improvement reduces latency, cloud cost, memory, or machines required. After repeatable database wins, use the same evidence-first process for routing, dispatch, matching, and scheduling in logistics.</p>
-        </div>
-      </li>
-    </ol>
-
-    <section class="agent">
-      <span class="kicker">Instruction for the lead agent</span>
-      <p><strong>Own the full loop.</strong> Set up the environment, establish a fair frozen evaluation, coordinate isolated search agents, protect the baseline and evaluator, manage machine contention, test correctness before speed, independently confirm winners, and report only what the evidence supports.</p>
+    <section class="prompt" aria-label="Copy-paste agent prompt">
+      <div class="prompt-head"><span>Copy-paste prompt</span><button class="copy" id="copy-prompt" type="button">Copy prompt</button></div>
+      <pre id="agent-prompt">Find a faster commercially useful database algorithm in this repository. Own the entire process: set up the environment, choose a valuable bottleneck, and establish a fair evaluation before changing code. Freeze the baseline, correctness tests, representative benchmarks, held-out cases, build settings, and success rule. Then test isolated improvements and coordinate other agents if useful. Protect the baseline and evaluator, avoid benchmark contention, preserve all results, and independently rerun any winner from a clean build. Report only reproducible speedups with matching outputs.</pre>
     </section>
-
-    <div class="actions">
-      <a class="button" href="https://github.com/vukrosic/open-discovery">Start from the repository ↗</a>
-      <a class="textlink" href="/cofounder.html">Read the cofounder message →</a>
-    </div>
   </main>
 
   <footer class="shell">
@@ -85,5 +37,18 @@
     <p>Open-source evidence loops.</p>
     <div><a href="https://github.com/vukrosic/open-discovery">GitHub ↗</a><a href="/cofounder.html">Cofounder</a><a href="/#contact">Contact</a></div>
   </footer>
+
+  <script>
+    document.getElementById("copy-prompt").addEventListener("click", async function () {
+      const button = this;
+      try {
+        await navigator.clipboard.writeText(document.getElementById("agent-prompt").textContent);
+        button.textContent = "Copied ✓";
+      } catch {
+        button.textContent = "Select prompt";
+      }
+      setTimeout(() => { button.textContent = "Copy prompt"; }, 1800);
+    });
+  </script>
 </body>
 </html>
