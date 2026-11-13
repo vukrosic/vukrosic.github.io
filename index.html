@@ -3,83 +3,162 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vuk Rosić</title>
+<title>Vuk Rosić — AI Research</title>
 <meta name="description" content="Vuk Rosić posts AI research daily: new training algorithms, LLM experiments with code, and how to do AI research with AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fbfbf9;--fg:#16181d;--muted:#5d6370;--line:#e3e3df;--link:#1f5fbf;--card:#ffffff;--accent:#1f5fbf}
-@media (prefers-color-scheme:dark){:root{--bg:#121417;--fg:#e8e9ec;--muted:#9aa0ab;--line:#2a2e35;--link:#7fb0ff;--card:#191c21;--accent:#7fb0ff}}
+:root{
+  --bg:#fbfaf7;--panel:#ffffff;--ink:#1b1e24;--muted:#6a7080;--faint:#9aa0ad;
+  --line:#e8e5de;--accent:#2f5bb7;--accent-soft:#eaf0fb;--chip:#f2f1ec;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#101216;--panel:#161920;--ink:#e7e9ee;--muted:#9ba1ae;--faint:#6d7382;
+  --line:#262a33;--accent:#86aaf5;--accent-soft:#1b2436;--chip:#1d2027;
+}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,"Times New Roman",serif}
-main{max-width:44rem;margin:0 auto;padding:3.5rem 16px 4rem}
-.head{display:flex;gap:1.1rem;align-items:center}
-.head img{width:76px;height:76px;border-radius:50%;flex:0 0 auto}
-h1{font-size:2.1rem;margin:0;letter-spacing:-.01em;line-height:1.15}
-.lede{font-size:1.15rem;margin:1.4rem 0 0}
-.sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-h2{font:600 13px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:.6rem;margin:2.8rem 0 1rem}
-a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}
-.card{display:block;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:1.1rem 1.2rem;color:var(--fg)}
-.card:hover{text-decoration:none;border-color:var(--accent)}
-.card .t{font-weight:600;font-size:1.1rem}
-.card .d{color:var(--muted);font-size:15.5px;margin-top:.2rem}
-.card .go{font:600 14px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--link);margin-top:.6rem}
-ul{list-style:none;padding:0;margin:0}
-.list li{margin:0 0 .9rem}
-.list .d{color:var(--muted);font-size:15px}
-.more{font:600 14px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-top:.4rem;display:inline-block}
-.links{display:grid;grid-template-columns:repeat(auto-fill,minmax(10.5rem,1fr));gap:.5rem 1rem;font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.links span{color:var(--muted);font-size:13px;display:block}
-footer{margin-top:3rem;color:var(--muted);font-size:14px}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:70rem;margin:0 auto;padding:4.5rem 24px 3rem;display:grid;grid-template-columns:17rem minmax(0,1fr);gap:4.5rem}
+
+/* sidebar */
+aside{position:sticky;top:3rem;align-self:start}
+.photo{width:104px;height:104px;border-radius:50%;display:block;border:1px solid var(--line)}
+h1{font:600 1.85rem/1.15 "Source Serif 4",Georgia,serif;margin:1.25rem 0 .2rem;letter-spacing:-.01em}
+.role{color:var(--muted);font-size:.95rem;margin:0}
+.links{list-style:none;padding:0;margin:1.75rem 0 0;font-size:.93rem}
+.links li{margin:0}
+.links a{display:flex;align-items:center;gap:.65rem;padding:.32rem 0;color:var(--ink)}
+.links a:hover{color:var(--accent)}
+.links svg{width:16px;height:16px;flex:0 0 16px;color:var(--faint)}
+.links a:hover svg{color:var(--accent)}
+.cn{margin:.9rem 0 0;font-size:.82rem;color:var(--muted);line-height:1.7}
+.cn a{color:var(--muted);border-bottom:1px solid var(--line)}
+.cn a:hover{color:var(--accent);border-color:var(--accent)}
+.school{margin-top:2rem;padding-top:1.1rem;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted);line-height:1.5}
+.school a{color:var(--accent);font-weight:500}
+
+/* main */
+.intro{font:400 1.45rem/1.5 "Source Serif 4",Georgia,serif;margin:0;letter-spacing:-.005em;max-width:38rem}
+.intro b{font-weight:600}
+.focus{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.5rem 0 0;padding:0;list-style:none}
+.focus li{background:var(--chip);color:var(--muted);font-size:.8rem;padding:.25rem .65rem;border-radius:999px}
+section{margin-top:3.6rem}
+h2{display:flex;justify-content:space-between;align-items:baseline;font-size:.75rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 .4rem;padding-bottom:.7rem;border-bottom:1px solid var(--line)}
+h2 a{font-size:.8rem;letter-spacing:0;text-transform:none;font-weight:500;color:var(--accent)}
+.items{list-style:none;padding:0;margin:0}
+.item{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:1.25rem;padding:1.05rem 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:0}
+.date{color:var(--faint);font-size:.8rem;padding-top:.2rem;font-variant-numeric:tabular-nums}
+.title{overflow-wrap:anywhere;font:600 1.08rem/1.4 "Source Serif 4",Georgia,serif;color:var(--ink)}
+a.title:hover{color:var(--accent)}
+.desc{color:var(--muted);font-size:.92rem;margin-top:.25rem}
+.meta{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin-top:.45rem;font-size:.8rem}
+.meta a{color:var(--accent);font-weight:500}
+.meta a:hover{text-decoration:underline}
+.tag{color:var(--faint)}
+.badge{display:inline-block;background:var(--accent-soft);color:var(--accent);font:500 .7rem/1.6 Inter,sans-serif;padding:0 .5rem;border-radius:4px;margin-left:.45rem;vertical-align:.15em}
+footer{grid-column:2;color:var(--faint);font-size:.8rem;padding-top:1rem}
+
+@media (max-width:860px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:2.5rem;padding:2.5rem 16px 2.5rem}
+  aside .school{display:none}
+  .school-m{display:block!important;margin:0 0 1rem;padding-top:1.1rem}
+  aside{position:static}
+  .links{display:flex;flex-wrap:wrap;gap:.1rem 1.2rem}
+  .intro{font-size:1.25rem}
+  .item{grid-template-columns:1fr;gap:.15rem}
+  footer{grid-column:1}
+}
 </style>
 </head>
 <body>
+<div class="wrap">
+
+<aside>
+  <img class="photo" src="https://avatars.githubusercontent.com/vukrosic?s=208" alt="Vuk Rosić">
+  <h1>Vuk Rosić</h1>
+  <p class="role">AI researcher</p>
+
+  <ul class="links">
+    <li><a href="https://scholar.google.com/citations?user=WqHnfDgAAAAJ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>Google Scholar</a></li>
+    <li><a href="https://orcid.org/0009-0001-3983-1579"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M8.5 10v7M8.5 7.2v.1M12 10h2.2a3.5 3.5 0 010 7H12z"/></svg>ORCID</a></li>
+    <li><a href="https://github.com/vukrosic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.2 4.2 0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 00-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 00-.1 3.2A4.6 4.6 0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a></li>
+    <li><a href="https://x.com/VukRosic99"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>X</a></li>
+    <li><a href="https://www.youtube.com/@vukrosic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></svg>YouTube</a></li>
+    <li><a href="https://www.linkedin.com/in/vuk-r-b71561164/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V17M8 7.3v.1M12 17v-6.5M12 13.5c0-2 1.3-3 2.6-3s2.4.9 2.4 3V17"/></svg>LinkedIn</a></li>
+    <li><a href="https://discord.gg/6AbXGpKTwN"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20l1.5-3H17a3 3 0 003-3V7a3 3 0 00-3-3H7a3 3 0 00-3 3v13z"/><path d="M9 10.5v.1M15 10.5v.1"/></svg>Discord</a></li>
+  </ul>
+
+  <p class="cn">中文 · <a href="https://www.xiaohongshu.com/user/profile/679762ae000000000a03d5d1">小红书</a> · <a href="https://space.bilibili.com/3546833932519662">Bilibili</a> · <a href="https://www.douyin.com/user/MS4wLjABAAAAwbJkSymbHOPgLLBchwAqSkT2Veb8sSft-FgLEtpsaq6KOApcEOQYn68ZD4Ggx7ht">抖音</a> · <a href="https://weibo.com/u/8007189005">微博</a></p>
+
+  <div class="school">I also teach AI research in <a href="https://www.skool.com/become-ai-researcher-2669">AI Research School ↗</a></div>
+</aside>
+
 <main>
-<div class="head">
-<img src="https://avatars.githubusercontent.com/vukrosic" alt="Vuk Rosić">
-<h1>Vuk Rosić</h1>
-</div>
-<p class="lede">I post AI research daily: new training algorithms, LLM experiments with the code that reproduces them, and how to do AI research with AI.</p>
+  <p class="intro">I post <b>AI research daily</b>: new training algorithms, LLM experiments with the code that reproduces them, and how to do AI research with AI.</p>
+  <ul class="focus"><li>Optimizers · Muon</li><li>LLM architecture</li><li>Mixture of experts</li><li>LLM memory</li><li>World models</li></ul>
 
-<h2>School</h2>
-<a class="card" href="https://www.skool.com/become-ai-researcher-2669">
-<div class="t">AI Research School — Become AI Researcher</div>
-<div class="d">Learn the math, PyTorch, LLM internals and the research workflow, and do real AI research with AI.</div>
-<div class="go">Join on Skool →</div>
-</a>
+  <section>
+    <h2>Recent results <a href="/research/">All research →</a></h2>
+    <ul class="items">
+      <li class="item"><div class="date">Nov 2026</div><div>
+        <a class="title" href="https://github.com/vukrosic/two-losses-one-network">Training one network on two losses added together hurts the thing with the smaller loss</a><span class="badge">paper in progress</span>
+        <div class="desc">One line, P − 1 ≈ 0.15 Λ<sup>0.75</sup>, fits 519 shared networks in four worlds.</div>
+        <div class="meta"><a href="https://github.com/vukrosic/two-losses-one-network">code</a><span class="tag">multi-task learning · world models</span></div></div></li>
+      <li class="item"><div class="date">Nov 2026</div><div>
+        <a class="title" href="https://github.com/vukrosic/llm-hash-routing">Hash routing in mixture-of-experts LLMs</a>
+        <div class="desc">When each vocabulary token should have its own fixed expert.</div>
+        <div class="meta"><a href="https://github.com/vukrosic/llm-hash-routing">code</a><span class="tag">mixture of experts</span></div></div></li>
+      <li class="item"><div class="date">Oct 2026</div><div>
+        <a class="title" href="https://github.com/vukrosic/ngram-hints-llm">SetGram: n-gram memory keyed by the set of words</a>
+        <div class="desc">Keying an LLM's n-gram memory by the set of words, not their order, so it recalls facts asked in new words.</div>
+        <div class="meta"><a href="https://github.com/vukrosic/ngram-hints-llm">code</a><span class="tag">LLM memory</span></div></div></li>
+      <li class="item"><div class="date">Oct 2026</div><div>
+        <a class="title" href="https://github.com/vukrosic/muon-row-fix">When equal-length rows help the Muon optimizer</a>
+        <div class="desc">When making every row of Muon's update the same length helps, and where to apply it in recent open LLMs.</div>
+        <div class="meta"><a href="https://github.com/vukrosic/muon-row-fix">code</a><span class="tag">optimizers · Muon</span></div></div></li>
+      <li class="item"><div class="date">Oct 2026</div><div>
+        <a class="title" href="https://github.com/vukrosic/muon-random-momentum">Muon momentum along random directions</a>
+        <div class="desc">Random directions instead of the strongest (SVD) ones give the same benefit with less memory.</div>
+        <div class="meta"><a href="https://github.com/vukrosic/muon-random-momentum">code</a><span class="tag">optimizers · Muon</span></div></div></li>
+      <li class="item"><div class="date">Oct 2026</div><div>
+        <a class="title" href="https://github.com/vukrosic/deepseek-sparse-attention-adaptive-k">Adaptive k in DeepSeek sparse attention</a>
+        <div class="desc">Letting each token decide how many tokens to read.</div>
+        <div class="meta"><a href="https://github.com/vukrosic/deepseek-sparse-attention-adaptive-k">code</a><span class="tag">attention</span></div></div></li>
+    </ul>
+  </section>
 
-<h2>Research</h2>
-<ul class="list">
-<li><a href="https://github.com/vukrosic/two-losses-one-network">Training one network on two losses added together hurts the thing with the smaller loss</a>
-<div class="d">One line fits 519 shared networks in four worlds. Paper in progress.</div></li>
-<li><a href="https://github.com/vukrosic/llm-hash-routing">Hash routing in mixture-of-experts LLMs</a>
-<div class="d">When each vocabulary token should have its own fixed expert.</div></li>
-<li><a href="https://github.com/vukrosic/ngram-hints-llm">SetGram: n-gram memory keyed by the set of words</a>
-<div class="d">An LLM memory that recalls facts asked in new words.</div></li>
-<li><a href="https://github.com/vukrosic/latent-topological-contraction-reasoning">Recursive Latent Reasoning by Topological Contraction</a>
-<div class="d">Paper, 2026.</div></li>
-</ul>
-<a class="more" href="/research/">All papers, results and research environments →</a>
+  <section>
+    <h2>Papers</h2>
+    <ul class="items">
+      <li class="item"><div class="date">2026</div><div>
+        <a class="title" href="https://github.com/vukrosic/latent-topological-contraction-reasoning/blob/main/paper.pdf">Recursive Latent Reasoning by Topological Contraction</a>
+        <div class="desc">Reasoning by repeatedly refining a latent state.</div>
+        <div class="meta"><a href="https://github.com/vukrosic/latent-topological-contraction-reasoning/blob/main/paper.pdf">PDF</a><a href="https://github.com/vukrosic/latent-topological-contraction-reasoning">code</a></div></div></li>
+      <li class="item"><div class="date">2025</div><div>
+        <a class="title" href="https://github.com/vukrosic/analysis-of-optimizers/blob/main/paper.pdf">Analysis and Design of Novel Optimizers for Neural Networks</a>
+        <div class="meta"><a href="https://github.com/vukrosic/analysis-of-optimizers/blob/main/paper.pdf">PDF</a><a href="https://github.com/vukrosic/analysis-of-optimizers">code</a></div></div></li>
+      <li class="item"><div class="date">2025</div><div>
+        <a class="title" href="https://github.com/vukrosic/linear-attention-research/blob/main/paper.pdf">Auto-Selection between Linear and Full Attention Layers for Every Token</a>
+        <div class="meta"><a href="https://github.com/vukrosic/linear-attention-research/blob/main/paper.pdf">PDF</a><a href="https://github.com/vukrosic/linear-attention-research">code</a></div></div></li>
+    </ul>
+  </section>
 
-<h2>Follow</h2>
-<div class="links">
-<a href="https://www.youtube.com/@vukrosic">YouTube<span>@vukrosic</span></a>
-<a href="https://x.com/VukRosic99">X<span>@VukRosic99</span></a>
-<a href="https://www.linkedin.com/in/vuk-r-b71561164/">LinkedIn<span>Vuk Rosić</span></a>
-<a href="https://github.com/vukrosic">GitHub<span>vukrosic</span></a>
-<a href="https://discord.gg/6AbXGpKTwN">Discord<span>community server</span></a>
-<a href="https://www.xiaohongshu.com/user/profile/679762ae000000000a03d5d1">Xiaohongshu<span>vuk_plus</span></a>
-<a href="https://space.bilibili.com/3546833932519662">Bilibili<span>vuk_ai</span></a>
-<a href="https://www.douyin.com/user/MS4wLjABAAAAwbJkSymbHOPgLLBchwAqSkT2Veb8sSft-FgLEtpsaq6KOApcEOQYn68ZD4Ggx7ht">Douyin<span>Vuk 武克</span></a>
-<a href="https://weibo.com/u/8007189005">Weibo<span>Vuk 武克</span></a>
-</div>
-
-<h2>Academic</h2>
-<div class="links">
-<a href="https://scholar.google.com/citations?user=WqHnfDgAAAAJ">Google Scholar<span>citations</span></a>
-<a href="https://orcid.org/0009-0001-3983-1579">ORCID<span>0009-0001-3983-1579</span></a>
-</div>
-
-<footer>Vuk Rosić</footer>
+  <section>
+    <h2>Open papers in progress</h2>
+    <ul class="items">
+      <li class="item"><div class="date">In progress</div><div><a class="title" href="https://github.com/Open-Superintelligence-Lab/muon-llm-parts">How Muon influences each part of an LLM</a></div></li>
+      <li class="item"><div class="date">In progress</div><div><a class="title" href="https://github.com/Open-Superintelligence-Lab/world-models-other-agents">Does a world model plan better when it models another agent separately?</a></div></li>
+      <li class="item"><div class="date">In progress</div><div><a class="title" href="https://github.com/Open-Superintelligence-Lab/llm-memory-parts">What each part of an LLM memory design does</a></div></li>
+      <li class="item"><div class="date">In progress</div><div><a class="title" href="https://github.com/Open-Superintelligence-Lab/llm-written-weights">What an LLM can and can't do by writing network weights</a></div></li>
+    </ul>
+  </section>
 </main>
+
+<footer><div class="school school-m" style="display:none">I also teach AI research in <a href="https://www.skool.com/become-ai-researcher-2669">AI Research School ↗</a></div>© 2026 Vuk Rosić · Code in linked repositories is MIT-licensed unless stated otherwise.</footer>
+</div>
 </body>
 </html>
